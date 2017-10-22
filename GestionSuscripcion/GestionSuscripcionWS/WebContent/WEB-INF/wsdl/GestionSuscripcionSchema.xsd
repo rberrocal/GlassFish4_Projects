@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/types"
+	targetNamespace="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/types"
+	elementFormDefault="qualified">
+
+	<!--******************* REQUEST ******************* -->
+
+	<xsd:element name="registrarSuscripcionRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditRequest" 	type="parametrosAuditRequest" />
+				<xsd:element name="IdSuscripcion" 	type="xsd:string" />
+				<xsd:element name="NombreSuscriptor" type="xsd:string" />
+				<xsd:element name="TipoSuscripcion" type="xsd:string" />	
+				<xsd:element name="Precio" 			type="xsd:string" />
+				<xsd:element name="FecRegistro" 	type="xsd:string" />				
+				<xsd:element name="listaRequestOpcional" minOccurs="1"
+					maxOccurs="1" type="parametrosRequest" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="listarSuscripcionRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditRequest"
+					type="parametrosAuditRequest" />
+				<xsd:element name="IdSuscripcion" type="xsd:string" />
+				<xsd:element name="NombreSuscriptor" type="xsd:string" />
+				<xsd:element name="fechaIni" type="xsd:string" />
+				<xsd:element name="fechaFin" type="xsd:string" />
+				<xsd:element name="listaRequestOpcional" minOccurs="1"
+					maxOccurs="1" type="parametrosRequest" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="eliminarSuscripcionRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditRequest" type="parametrosAuditRequest" />
+				<xsd:element name="IdSuscripcion" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="actualizarSuscripcionRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditRequest" 	type="parametrosAuditRequest" />
+				<xsd:element name="IdSuscripcion" 	type="xsd:string" />
+				<xsd:element name="NombreSuscriptor" type="xsd:string" />
+				<xsd:element name="TipoSuscripcion" type="xsd:string" />	
+				<xsd:element name="Precio" 			type="xsd:string" />
+				<xsd:element name="FecRegistro" 	type="xsd:string" />				
+				<xsd:element name="listaRequestOpcional" minOccurs="1"
+					maxOccurs="1" type="parametrosRequest" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<!--******************* RESPONSE ******************* -->
+
+	<xsd:element name="registrarSuscripcionResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditResponse" type="parametrosAuditResponse" />
+				<xsd:element name="listaResponseOpcional" type="parametrosResponse" 
+					minOccurs="1" maxOccurs="1"  />
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="listarSuscripcionResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditResponse" type="parametrosAuditResponse" />
+				<xsd:element name="listaSuscripcion" type="ListaSuscripcionesType"
+					minOccurs="1" maxOccurs="1" />
+				<xsd:element name="listaResponseOpcional" type="parametrosResponse" 
+					minOccurs="1" maxOccurs="1"  />
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="eliminarSuscripcionResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditResponse" type="parametrosAuditResponse" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="actualizarSuscripcionResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="auditResponse" type="parametrosAuditResponse" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!--******************* TYPES ******************* -->
+	<xsd:complexType name="parametrosAuditRequest">
+		<xsd:sequence>
+			<xsd:element name="idTransaccion" type="xsd:string" />
+			<xsd:element name="ipAplicacion" type="xsd:string" />
+			<xsd:element name="nombreAplicacion" type="xsd:string" />
+			<xsd:element name="usuarioAplicacion" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="parametrosAuditResponse">
+		<xsd:sequence>
+			<xsd:element name="idTransaccion" type="xsd:string" />
+			<xsd:element name="codigoRespuesta" type="xsd:string" />
+			<xsd:element name="mensajeRespuesta" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="parametrosRequest">
+		<xsd:sequence>
+			<xsd:element name="objetoRequestOpcional" maxOccurs="unbounded"
+				minOccurs="1">
+				<xsd:complexType>
+					<xsd:attribute name="campo" type="xsd:string" />
+					<xsd:attribute name="valor" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="parametrosResponse">
+		<xsd:sequence>
+			<xsd:element name="objetoResponseOpcional" maxOccurs="unbounded"
+				minOccurs="1">
+				<xsd:complexType>
+					<xsd:attribute name="campo" type="xsd:string" />
+					<xsd:attribute name="valor" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!--******************* TYPES ******************* -->
+
+	<xsd:complexType name="ListaSuscripcionesType">
+		<xsd:sequence>
+			<xsd:element name="suscripcion" type="SuscripcionType" maxOccurs="unbounded"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SuscripcionType">
+		<xsd:sequence>
+			<xsd:element name="IdSuscripcion" 		type="xsd:string" />
+			<xsd:element name="NombreSuscriptor" 	type="xsd:string" />
+			<xsd:element name="TipoSuscripcion" 	type="xsd:string" />	
+			<xsd:element name="Precio" 				type="xsd:string" />
+			<xsd:element name="FecRegistro" 		type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+
+</xsd:schema>

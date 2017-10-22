@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<wsdl:definitions name="GestionSuscripcionWS"
+	targetNamespace="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tns="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws"
+	xmlns:types="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/types"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/types"
+				schemaLocation="GestionSuscripcionSchema.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="registrarSuscripcionRequestMsg">
+		<wsdl:part element="types:registrarSuscripcionRequest" name="request" />
+	</wsdl:message>
+
+	<wsdl:message name="registrarSuscripcionResponseMsg">
+		<wsdl:part element="types:registrarSuscripcionResponse" name="response" />
+	</wsdl:message>
+	
+	<wsdl:message name="listarSuscripcionRequestMsg">
+		<wsdl:part element="types:listarSuscripcionRequest" name="request" />
+	</wsdl:message>
+	
+	<wsdl:message name="listarSuscripcionResponseMsg">
+		<wsdl:part element="types:listarSuscripcionResponse"
+			name="response" />
+	</wsdl:message>
+	
+	<wsdl:message name="eliminarSuscripcionRequestMsg">
+		<wsdl:part element="types:eliminarSuscripcionRequest" name="request" />
+	</wsdl:message>
+	
+	<wsdl:message name="eliminarSuscripcionResponseMsg">
+		<wsdl:part element="types:eliminarSuscripcionResponse"
+			name="response" />
+	</wsdl:message>
+	
+	<wsdl:message name="actualizarSuscripcionRequestMsg">
+		<wsdl:part element="types:actualizarSuscripcionRequest" name="request" />
+	</wsdl:message>
+	
+	<wsdl:message name="actualizarSuscripcionResponseMsg">
+		<wsdl:part element="types:actualizarSuscripcionResponse"
+			name="response" />
+	</wsdl:message>
+
+
+	<wsdl:portType name="GestionSuscripcionWSPortType">
+		<wsdl:operation name="registrarSuscripcion">
+			<wsdl:input message="tns:registrarSuscripcionRequestMsg" />
+			<wsdl:output message="tns:registrarSuscripcionResponseMsg" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="listarSuscripcion">
+			<wsdl:input message="tns:listarSuscripcionRequestMsg" />
+			<wsdl:output message="tns:listarSuscripcionResponseMsg" />
+		</wsdl:operation>		
+		
+		<wsdl:operation name="eliminarSuscripcion">
+			<wsdl:input message="tns:eliminarSuscripcionRequestMsg" />
+			<wsdl:output message="tns:eliminarSuscripcionResponseMsg" />
+		</wsdl:operation>	
+		
+		<wsdl:operation name="actualizarSuscripcion">
+			<wsdl:input message="tns:actualizarSuscripcionRequestMsg" />
+			<wsdl:output message="tns:actualizarSuscripcionResponseMsg" />
+		</wsdl:operation>	
+
+	</wsdl:portType>
+
+	<wsdl:binding name="GestionSuscripcionWSBindingSOAP11"
+		type="tns:GestionSuscripcionWSPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="registrarSuscripcion">
+			<soap:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/registrarSuscripcion" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="listarSuscripcion">
+			<soap:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/listarSuscripcion" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>		
+		
+		<wsdl:operation name="eliminarSuscripcion">
+			<soap:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/eliminarSuscripcion" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="actualizarSuscripcion">
+			<soap:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/actualizarSuscripcion" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>	
+
+	</wsdl:binding>
+
+	<wsdl:binding name="GestionSuscripcionWSBindingSOAP12"
+		type="tns:GestionSuscripcionWSPortType">
+		<soap12:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="registrarSuscripcion">
+			<soap12:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/registrarSuscripcion" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="listarSuscripcion">
+			<soap12:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/listarSuscripcion" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>	
+		
+		<wsdl:operation name="eliminarSuscripcion">
+			<soap12:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/eliminarSuscripcion" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>	
+
+		<wsdl:operation name="actualizarSuscripcion">
+			<soap12:operation
+				soapAction="http://comercio.com.pe/eai/services/GestionSuscripcionWS/ws/actualizarSuscripcion" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>	
+
+	</wsdl:binding>
+
+	<wsdl:service name="GestionSuscripcionWSService">
+		<wsdl:port binding="tns:GestionSuscripcionWSBindingSOAP11"
+			name="GestionSuscripcionWSSOAP11Port">
+			<soap:address
+				location="http://localhost:7012/GestionSuscripcionWS/GestionSuscripcionWSSoap11?wsdl" />
+		</wsdl:port>
+		<wsdl:port binding="tns:GestionSuscripcionWSBindingSOAP12"
+			name="GestionSuscripcionWSSOAP12Port">
+			<soap12:address
+				location="http://localhost:7012/GestionSuscripcionWS/GestionSuscripcionWSSoap12?wsdl" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
